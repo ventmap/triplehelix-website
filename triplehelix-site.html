@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TripleHelix — From Research to Reality</title>
+<style>
+  :root {
+    --paper: #FBF7EF;
+    --ink: #1A2438;
+    --navy: #16355E;
+    --science: #1481AA;
+    --gold: #D69E12;
+    --muted: #5A5346;
+    --rule: #DDD5C7;
+    --serif: Cambria, Georgia, 'Times New Roman', serif;
+    --sans: Calibri, 'Segoe UI', Roboto, Arial, sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  html { scroll-padding-top: 5.5rem; scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+  }
+
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: 17px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--science); outline-offset: 3px; }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.75rem; }
+
+  /* ---------- the wordmark's three-line device (logo basis — untouched) ---------- */
+  .strands { display: inline-flex; flex-direction: column; gap: 5px; width: 34px; }
+  .strands span { height: 2.5px; border-radius: 2px; }
+  .strands span:nth-child(1) { background: var(--navy); }
+  .strands span:nth-child(2) { background: var(--science); }
+  .strands span:nth-child(3) { background: var(--gold); }
+  .strands.vertical { flex-direction: row; width: auto; height: 100%; gap: 6px; }
+  .strands.vertical span { width: 2.5px; height: 100%; }
+
+  /* ---------- header ---------- */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(251, 247, 239, 0.92);
+    backdrop-filter: saturate(140%) blur(6px);
+    border-bottom: 1px solid var(--rule);
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding-top: 1.1rem; padding-bottom: 1.1rem; }
+  .wordmark { font-family: var(--serif); font-weight: 700; font-size: 1.35rem; text-decoration: none; color: var(--ink); }
+  .navlinks { display: flex; gap: 1.9rem; list-style: none; margin: 0; padding: 0; }
+  .navlinks a {
+    text-decoration: none; font-size: 0.92rem; color: var(--muted);
+    border-bottom: 1px solid transparent; padding-bottom: 2px;
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .navlinks a:hover { color: var(--ink); border-color: var(--gold); }
+  .navtoggle { display: none; background: none; border: none; font-family: var(--serif); font-size: 1.6rem; color: var(--ink); cursor: pointer; }
+  @media (max-width: 780px) {
+    .navlinks {
+      position: absolute; top: 100%; left: 0; right: 0;
+      background: var(--paper); border-bottom: 1px solid var(--rule);
+      flex-direction: column; gap: 0; padding: 0.5rem 1.75rem 1rem; display: none;
+    }
+    .navlinks.open { display: flex; }
+    .navlinks a { padding: 0.65rem 0; border-bottom: 1px solid var(--rule); }
+    .navtoggle { display: block; }
+  }
+
+  /* ---------- hero: bold navy block, the one full-color moment up top ---------- */
+  .hero-section { background: var(--navy); }
+  .hero { padding-top: 5.5rem; padding-bottom: 4.5rem; display: grid; grid-template-columns: 40px 1fr; gap: 2.2rem; }
+  .hero .strands.vertical { align-self: stretch; min-height: 100%; }
+  .hero .strands.vertical span:nth-child(1) { background: #6E8CB8; }
+  .hero h1 {
+    font-family: var(--serif); font-weight: 700; font-size: clamp(2.4rem, 5.4vw, 4.1rem);
+    line-height: 1.08; margin: 0 0 1.5rem; color: var(--paper); max-width: 15ch;
+  }
+  .hero p.lede { font-size: 1.18rem; color: #C6D0E0; max-width: 56ch; margin: 0 0 2.1rem; line-height: 1.55; }
+  .cta {
+    display: inline-block; font-family: var(--serif); font-style: italic; font-size: 1.05rem;
+    text-decoration: none; color: var(--ink); border-bottom: 1.5px solid var(--gold); padding-bottom: 3px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .cta:hover { color: var(--science); border-color: var(--science); }
+  .hero .cta { color: var(--paper); }
+  .hero .cta:hover { color: #9FD1EE; border-color: #9FD1EE; }
+  @media (max-width: 640px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero .strands.vertical { flex-direction: row; width: 34px; height: auto; }
+    .hero .strands.vertical span { width: auto; height: 2.5px; flex: 1; }
+  }
+
+  /* ---------- section scaffolding: clean paper, no tinting ---------- */
+  section { padding: 4.8rem 0; }
+  .section-mark { margin-bottom: 1.6rem; }
+  h2 {
+    font-family: var(--serif); font-weight: 700; color: var(--ink);
+    font-size: clamp(1.6rem, 3vw, 2.15rem); margin: 0 0 1.3rem; max-width: 24ch;
+  }
+  .intro { font-size: 1.08rem; color: var(--muted); max-width: 62ch; margin: 0 0 2.4rem; line-height: 1.6; }
+
+  /* ---------- dividers between sections: three solid ribbons, shape varies ---------- */
+  .divider-row { display: flex; justify-content: center; padding: 0.6rem 0; }
+  .divider { position: relative; width: 90px; height: 42px; }
+  .divider span { position: absolute; border-radius: 3px; }
+
+  .div-fan span { width: 8px; height: 38px; top: 2px; }
+  .div-fan span:nth-child(1) { left: 4px;  background: var(--navy);    transform: rotate(-14deg); }
+  .div-fan span:nth-child(2) { left: 38px; background: var(--science); transform: rotate(6deg); top: 0; }
+  .div-fan span:nth-child(3) { left: 70px; background: var(--gold);    transform: rotate(-10deg); }
+
+  .div-steps span { height: 7px; left: 3px; }
+  .div-steps span:nth-child(1) { width: 84px; top: 6px;  background: var(--navy); }
+  .div-steps span:nth-child(2) { width: 56px; top: 18px; background: var(--science); }
+  .div-steps span:nth-child(3) { width: 30px; top: 30px; background: var(--gold); }
+
+  .div-cross { width: 60px; }
+  .div-cross span { width: 46px; height: 6px; top: 18px; left: 7px; transform-origin: 23px 3px; }
+  .div-cross span:nth-child(1) { background: var(--navy);    transform: rotate(0deg); }
+  .div-cross span:nth-child(2) { background: var(--science); transform: rotate(60deg); }
+  .div-cross span:nth-child(3) { background: var(--gold);    transform: rotate(120deg); opacity: 0.94; }
+
+  /* ---------- gap section: editorial stacked blocks ---------- */
+  .gaps { display: flex; flex-direction: column; }
+  .gap-row { display: grid; grid-template-columns: 1fr 2.1fr; gap: 2rem; padding: 1.7rem 0; border-top: 1px solid var(--rule); }
+  .gap-row:first-child { border-top: 1px solid var(--rule); }
+  .gap-row h3 { font-family: var(--serif); font-weight: 700; font-size: 1.18rem; margin: 0; color: var(--ink); }
+  .gap-row p { margin: 0; color: var(--muted); max-width: 56ch; }
+  @media (max-width: 700px) { .gap-row { grid-template-columns: 1fr; gap: 0.5rem; } }
+
+  /* ---------- mission / vision ---------- */
+  .mv { display: grid; grid-template-columns: 1.15fr 1fr; gap: 3.2rem; }
+  .mv-block .tag { font-family: var(--sans); font-weight: 700; font-size: 0.82rem; margin-bottom: 0.7rem; display: block; }
+  .mv-block:nth-child(1) .tag { color: var(--gold); }
+  .mv-block:nth-child(2) .tag { color: var(--science); }
+  .mv-block blockquote { font-family: var(--serif); font-style: italic; font-size: 1.28rem; line-height: 1.5; margin: 0; color: var(--ink); }
+  @media (max-width: 700px) { .mv { grid-template-columns: 1fr; gap: 2.2rem; } }
+
+  /* ---------- triple helix concept: three unequal strand columns ---------- */
+  .strand-cols { display: grid; grid-template-columns: 1.3fr 1fr 0.85fr; gap: 2rem; margin-top: 2.6rem; }
+  .strand-col { border-top: 3px solid; padding-top: 1rem; }
+  .strand-col:nth-child(1) { border-color: var(--navy); }
+  .strand-col:nth-child(2) { border-color: var(--science); }
+  .strand-col:nth-child(3) { border-color: var(--gold); }
+  .strand-col h4 { font-family: var(--serif); font-size: 1.12rem; margin: 0 0 0.5rem; }
+  .strand-col p { margin: 0; color: var(--muted); font-size: 0.97rem; }
+  @media (max-width: 700px) { .strand-cols { grid-template-columns: 1fr; } }
+
+  /* ---------- what we do ---------- */
+  .pillars { display: flex; flex-direction: column; gap: 0; margin-top: 0.5rem; }
+  .pillar { display: grid; grid-template-columns: 1fr 2.3fr; gap: 2rem; padding: 1.9rem 0; border-top: 1px solid var(--rule); align-items: baseline; }
+  .pillar:first-child { border-top: 1px solid var(--rule); }
+  .pillar h3 { font-family: var(--serif); font-size: 1.2rem; margin: 0; color: var(--ink); }
+  .pillar p { margin: 0; color: var(--muted); max-width: 58ch; }
+  @media (max-width: 700px) { .pillar { grid-template-columns: 1fr; gap: 0.5rem; } }
+
+  /* ---------- who we serve ---------- */
+  .serve-band { display: flex; flex-wrap: wrap; gap: 0.6rem 0; font-family: var(--serif); font-size: clamp(1.15rem, 2.4vw, 1.55rem); color: var(--ink); align-items: center; }
+  .serve-band span.item { white-space: nowrap; }
+  .serve-band span.sep { color: var(--gold); margin: 0 0.9rem; font-style: italic; }
+
+  /* ---------- differentiation: 2x2 ---------- */
+  .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.6rem 3rem; margin-top: 0.5rem; }
+  .diff-item h3 { font-family: var(--serif); font-size: 1.12rem; margin: 0 0 0.5rem; color: var(--ink); }
+  .diff-item p { margin: 0; color: var(--muted); font-size: 0.97rem; }
+  @media (max-width: 700px) { .diff-grid { grid-template-columns: 1fr; gap: 1.8rem; } }
+
+  /* ---------- GTW umbrella ---------- */
+  .gtw p { max-width: 68ch; font-size: 1.06rem; color: var(--ink); line-height: 1.6; }
+
+  /* ---------- process timeline (the one genuine sequence) ---------- */
+  .timeline { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; margin-top: 2.6rem; position: relative; }
+  .timeline::before { content: ""; position: absolute; top: 9px; left: 4%; right: 4%; height: 1px; background: var(--rule); }
+  .tstep { position: relative; padding-top: 2.1rem; text-align: left; padding-right: 1rem; }
+  .tstep .dot { position: absolute; top: 0; left: 0; width: 18px; height: 18px; border-radius: 50%; background: var(--paper); border: 2px solid var(--gold); }
+  .tstep:nth-child(3) .dot, .tstep:nth-child(5) .dot { border-color: var(--science); }
+  .tstep h4 { font-family: var(--serif); font-size: 0.97rem; margin: 0; line-height: 1.3; }
+  @media (max-width: 780px) {
+    .timeline { grid-template-columns: 1fr; gap: 1.5rem; }
+    .timeline::before { display: none; }
+    .tstep { padding-left: 1.9rem; padding-top: 0; border-left: 1px solid var(--rule); padding-bottom: 0.2rem; }
+    .tstep .dot { top: 2px; left: -9px; }
+  }
+  .process-note { font-style: italic; color: var(--muted); font-family: var(--serif); font-size: 1.08rem; max-width: 62ch; margin-top: 2.8rem; }
+
+  /* ---------- contact & footer: dark bookend, matching the hero ---------- */
+  .contact { background: var(--ink); color: var(--paper); }
+  .contact .wrap { text-align: left; }
+  .contact h2 { color: var(--paper); }
+  .contact p.lede2 { color: #C9C2B0; font-size: 1.1rem; max-width: 56ch; margin: 0 0 2rem; }
+  .contact .cta { color: var(--paper); border-color: var(--gold); }
+  .contact .cta:hover { color: #9FD1EE; border-color: #9FD1EE; }
+  .contact .meta { margin-top: 2.6rem; display: flex; gap: 2.4rem; flex-wrap: wrap; font-size: 0.92rem; color: #9E9788; }
+
+  footer { padding: 2.4rem 0; border-top: 1px solid #2B3550; background: var(--ink); padding-bottom: calc(2.4rem + env(safe-area-inset-bottom, 0px)); }
+  footer .wrap { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.8rem; }
+  footer .fmark { font-family: var(--serif); color: var(--paper); font-size: 1.05rem; }
+  footer .ftag { color: #8F8A7C; font-size: 0.86rem; font-style: italic; }
+  footer .fmeta { color: #6E6A5E; font-size: 0.8rem; }
+
+  /* ---------- dark-mode tokens (viewer preference only; page still defaults light) ---------- */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --paper: #12182A; --ink: #F1ECDF; --muted: #B7AF9C; --rule: #2C3550; }
+    :root:not([data-theme="light"]) header { background: rgba(18, 24, 42, 0.92); }
+    :root:not([data-theme="light"]) .tstep .dot { background: var(--paper); }
+  }
+  :root[data-theme="dark"] { --paper: #12182A; --ink: #F1ECDF; --muted: #B7AF9C; --rule: #2C3550; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="wordmark" href="#top">TripleHelix</a>
+    <button class="navtoggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    <ul class="navlinks" id="navLinks">
+      <li><a href="#why">Why We Exist</a></li>
+      <li><a href="#helix">The Idea</a></li>
+      <li><a href="#work">What We Do</a></li>
+      <li><a href="#process">How We Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero-section">
+    <div class="wrap hero">
+      <div class="strands vertical"><span></span><span></span><span></span></div>
+      <div>
+        <h1>From Research to Reality.</h1>
+        <p class="lede">TripleHelix connects business and industry with education, science, and innovation across Azerbaijan — turning research and expertise into practical, commercial outcomes.</p>
+        <a class="cta" href="mailto:info@triplehelix.az">Start a conversation &nbsp;&rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-row"><div class="divider div-fan"><span></span><span></span><span></span></div></div>
+
+  <!-- WHY WE EXIST -->
+  <section id="why">
+    <div class="wrap">
+      <h2>Three gaps, one missing bridge</h2>
+      <p class="intro">Azerbaijan's digital and innovation strategies set a clear national direction. What's missing is a consistent, structured mechanism connecting the institutions meant to deliver it.</p>
+      <div class="gaps">
+        <div class="gap-row">
+          <h3>Fragmented consulting</h3>
+          <p>Innovation and transformation advisory is largely unstructured today, delivered by individual consultants rather than an integrated practice.</p>
+        </div>
+        <div class="gap-row">
+          <h3>Weak systematic coordination</h3>
+          <p>No consistent mechanism connects business, science, government, and technology as a matter of course — each collaboration starts from zero.</p>
+        </div>
+        <div class="gap-row">
+          <h3>Limited international integration</h3>
+          <p>B2B networking activity exists, but formats integrated with international standards and frameworks remain limited.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-row"><div class="divider div-steps"><span></span><span></span><span></span></div></div>
+
+  <!-- MISSION & VISION -->
+  <section>
+    <div class="wrap mv">
+      <div class="mv-block">
+        <span class="tag">MISSION</span>
+        <blockquote>Give Azerbaijani institutions practical support in adopting global management, technology, and innovation practices — and connect them to the right partners, markets, and opportunities.</blockquote>
+      </div>
+      <div class="mv-block">
+        <span class="tag">VISION</span>
+        <blockquote>To become the trusted bridge between business, science, government, and technology in Azerbaijan — and a recognized innovation and partnership center across the region.</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-row"><div class="divider div-cross"><span></span><span></span><span></span></div></div>
+
+  <!-- THE TRIPLE HELIX CONCEPT -->
+  <section id="helix">
+    <div class="wrap">
+      <h2>Why we're called TripleHelix</h2>
+      <p class="intro">Developed by Henry Etzkowitz and Loet Leydesdorff, the Triple Helix model describes how innovation accelerates fastest not inside any single institution, but in the overlap between three strands. In our corridor, government's role runs specifically through education and science policy — so we name our three strands the way they actually meet in the room.</p>
+      <div class="strand-cols">
+        <div class="strand-col"><h4>Business &amp; Industry</h4><p>The enterprises and sectors that turn capability into commercial outcomes.</p></div>
+        <div class="strand-col"><h4>Education &amp; Science</h4><p>The universities and research institutions where knowledge originates.</p></div>
+        <div class="strand-col"><h4>Innovation</h4><p>The capability their collaboration produces — not a fourth strand, but the result of the other two meeting.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-row"><div class="divider div-fan"><span></span><span></span><span></span></div></div>
+
+  <!-- WHAT WE DO -->
+  <section id="work">
+    <div class="wrap">
+      <h2>What we do</h2>
+      <p class="intro">Three integrated pillars, delivered as one relationship rather than three separate vendors.</p>
+      <div class="pillars">
+        <div class="pillar"><h3>Partner Development</h3><p>Business development strategy, innovation strategy, digital transformation, and organizational development — delivered as structured advisory, not ad hoc consulting.</p></div>
+        <div class="pillar"><h3>Strategic Partnerships</h3><p>Business&ndash;university and business&ndash;science collaboration, technology scouting and matching, consortium formation, and R&amp;D partnerships.</p></div>
+        <div class="pillar"><h3>Business Relations</h3><p>B2B matchmaking, business clubs and CEO networks, and international business missions — built on standards, not just introductions.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-row"><div class="divider div-steps"><span></span><span></span><span></span></div></div>
+
+  <!-- WHO WE SERVE -->
+  <section>
+    <div class="wrap">
+      <h2>Who we work with</h2>
+      <p class="serve-band">
+        <span class="item">Universities &amp; research institutions</span><span class="sep">&middot;</span><span class="item">Government ministries &amp; agencies</span><span class="sep">&middot;</span><span class="item">Businesses &amp; industry leaders</span>
+      </p>
+    </div>
+  </section>
+
+  <div class="divider-row"><div class="divider div-cross"><span></span><span></span><span></span></div></div>
+
+  <!-- DIFFERENTIATION -->
+  <section>
+    <div class="wrap">
+      <h2>What sets us apart</h2>
+      <div class="diff-grid">
+        <div class="diff-item"><h3>International standards, local fluency</h3><p>Practical experience applying ISO 56002, ISO 56005, and RTTP frameworks — rare expertise in this market, combined with deep understanding of local context.</p></div>
+        <div class="diff-item"><h3>One integrated relationship</h3><p>Advisory, partnership-building, and networking under one roof — a single point of contact rather than three separate vendors.</p></div>
+        <div class="diff-item"><h3>Aligned with state priorities</h3><p>A natural fit for institutional financing and partnership tied to national digital and innovation strategy.</p></div>
+        <div class="diff-item"><h3>Proven delivery experience</h3><p>An established track record delivering events and training programs — fast market entry, not a standing start.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-row"><div class="divider div-fan"><span></span><span></span><span></span></div></div>
+
+  <!-- GTW UMBRELLA -->
+  <section class="gtw">
+    <div class="wrap">
+      <h2>Operating under the GTW ecosystem</h2>
+      <p>TripleHelix is part of GTW — a movement that has spent years building trust and community across the Baku&ndash;Tbilisi&ndash;Tashkent corridor. This partnership does not begin from zero: it draws on an established network, earned credibility, and a wider innovation ecosystem already in motion.</p>
+    </div>
+  </section>
+
+  <div class="divider-row"><div class="divider div-steps"><span></span><span></span><span></span></div></div>
+
+  <!-- HOW WE WORK -->
+  <section id="process">
+    <div class="wrap">
+      <h2>How a partnership comes together</h2>
+      <div class="timeline">
+        <div class="tstep"><span class="dot"></span><h4>Partner</h4></div>
+        <div class="tstep"><span class="dot"></span><h4>Need identified</h4></div>
+        <div class="tstep"><span class="dot"></span><h4>Strategic collaboration formed</h4></div>
+        <div class="tstep"><span class="dot"></span><h4>Joint project</h4></div>
+        <div class="tstep"><span class="dot"></span><h4>Measurable outcome</h4></div>
+      </div>
+      <p class="process-note">This cycle creates synergy across all three pillars and compounds value back into the wider business and academic community with every partnership.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2>Let's build the bridge together.</h2>
+      <p class="lede2">No commitment is required for the first conversation — identify one department or one pilot idea, and start there.</p>
+      <a class="cta" href="mailto:info@triplehelix.az">info@triplehelix.az &nbsp;&rarr;</a>
+      <div class="meta">
+        <span>Baku, Azerbaijan</span>
+        <span>triplehelix.az</span>
+        <span>Operating under the GTW Ecosystem</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="fmark">TripleHelix</span>
+    <span class="ftag">Tədqiqatdan Reallığa &nbsp;&middot;&nbsp; From Research to Reality</span>
+    <span class="fmeta">&copy; 2026 TripleHelix</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', function () {
+    var links = document.getElementById('navLinks');
+    var open = links.classList.toggle('open');
+    this.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.querySelectorAll('.navlinks a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      document.getElementById('navLinks').classList.remove('open');
+      document.getElementById('navToggle').setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
+</body>
+</html>
