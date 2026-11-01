@@ -2,8 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="description" content="TripleHelix connects business and industry with education, science, and innovation across Azerbaijan. / TripleHelix biznes və sənayeni təhsil, elm və innovasiya ilə birləşdirir.">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>TripleHelix — From Research to Reality</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;-1.45 -7.95 102.90 102.90&quot; role=&quot;img&quot; aria-label=&quot;TripleHelix icon&quot;%3E%3Cdefs%3E%3C/defs%3E%3Crect x=&quot;-1.45&quot; y=&quot;-7.95&quot; width=&quot;102.90&quot; height=&quot;102.90&quot; rx=&quot;22.64&quot; fill=&quot;%23FBF7EF&quot;/%3E%3Cline x1=&quot;50.00&quot; y1=&quot;41.00&quot; x2=&quot;50.00&quot; y2=&quot;12.00&quot; stroke=&quot;%2316355E&quot; stroke-width=&quot;13.0&quot; stroke-linecap=&quot;round&quot;/%3E%3Cline x1=&quot;61.26&quot; y1=&quot;60.50&quot; x2=&quot;86.37&quot; y2=&quot;75.00&quot; stroke=&quot;%231481AA&quot; stroke-width=&quot;13.0&quot; stroke-linecap=&quot;round&quot;/%3E%3Cline x1=&quot;38.74&quot; y1=&quot;60.50&quot; x2=&quot;13.63&quot; y2=&quot;75.00&quot; stroke=&quot;%23D69E12&quot; stroke-width=&quot;13.0&quot; stroke-linecap=&quot;round&quot;/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap">
 <style>
   :root {
     --paper: #FBF7EF;
@@ -13,6 +18,9 @@
     --gold: #D69E12;
     --muted: #5A5346;
     --rule: #DDD5C7;
+    --logo-navy: #16355E;
+    --tint: #F3ECDD;
+    --card: #FFFDF8;
     --serif: Cambria, Georgia, 'Times New Roman', serif;
     --sans: Calibri, 'Segoe UI', Roboto, Arial, sans-serif;
     box-sizing: border-box;
@@ -54,7 +62,8 @@
     padding-top: env(safe-area-inset-top, 0px);
   }
   .nav { display: flex; align-items: center; justify-content: space-between; padding-top: 1.1rem; padding-bottom: 1.1rem; }
-  .wordmark { font-family: var(--serif); font-weight: 700; font-size: 1.35rem; text-decoration: none; color: var(--ink); }
+  .wordmark { display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'Lora', var(--serif); font-weight: 700; font-size: 1.4rem; letter-spacing: 0.01em; text-decoration: none; color: var(--ink); }
+  .logo-mark { height: 1.9rem; width: auto; flex: none; }
   .navlinks { display: flex; gap: 1.9rem; list-style: none; margin: 0; padding: 0; }
   .navlinks a {
     text-decoration: none; font-size: 0.92rem; color: var(--muted);
@@ -73,6 +82,14 @@
     .navlinks a { padding: 0.65rem 0; border-bottom: 1px solid var(--rule); }
     .navtoggle { display: block; }
   }
+
+
+  /* ---------- language switch ---------- */
+  .navlinks { margin-left: auto; }
+  .lang { display: inline-flex; border: 1px solid var(--rule); border-radius: 999px; padding: 2px; margin-left: 1.8rem; }
+  .lang button { font-family: var(--sans); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; background: none; border: none; color: var(--muted); padding: 0.28rem 0.7rem; border-radius: 999px; cursor: pointer; }
+  .lang button[aria-pressed="true"] { background: var(--navy); color: #FBF7EF; }
+  @media (max-width: 780px) { .lang { margin-left: auto; margin-right: 0.6rem; } }
 
   /* ---------- hero: bold navy block, the one full-color moment up top ---------- */
   .hero-section { background: var(--navy); }
@@ -191,6 +208,33 @@
   }
   .process-note { font-style: italic; color: var(--muted); font-family: var(--serif); font-size: 1.08rem; max-width: 62ch; margin-top: 2.8rem; }
 
+  /* ---------- Helix Challenges: flagship programme band ---------- */
+  .challenges { background: var(--tint); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .eyebrow { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--science); margin: 0 0 0.9rem; }
+  .challenges h2 { max-width: 20ch; }
+  .ch-lead { font-family: var(--serif); font-style: italic; font-size: 1.28rem; line-height: 1.45; max-width: 36ch; margin: 0 0 1rem; color: var(--ink); }
+  .stages { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin: 2.4rem 0 0; padding: 0; list-style: none; }
+  .stage { background: var(--card); border: 1px solid var(--rule); border-top: 4px solid var(--navy); border-radius: 6px; padding: 1.2rem 1.1rem 1.3rem; min-width: 0; }
+  .stage:nth-child(even) { border-top-color: var(--science); }
+  .stage:last-child { border-top-color: var(--gold); }
+  .stage .num { font-family: var(--serif); font-weight: 700; font-size: 1.5rem; color: var(--gold); line-height: 1; display: block; margin-bottom: 0.6rem; }
+  .stage h3 { font-family: var(--serif); font-size: 1.1rem; margin: 0 0 0.45rem; }
+  .stage p { margin: 0; font-size: 0.93rem; color: var(--muted); line-height: 1.5; }
+  .outcomes { margin-top: 2.8rem; }
+  .outcomes .label { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 0.7rem; }
+  .ch-sub { font-family: var(--serif); font-size: 1.3rem; margin: 3.4rem 0 1.2rem; }
+  .roles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+  .role { border-top: 3px solid var(--navy); padding-top: 0.9rem; min-width: 0; }
+  .role:nth-child(2) { border-color: var(--science); }
+  .role:nth-child(3) { border-color: var(--gold); }
+  .role h4 { font-family: var(--serif); font-size: 1.12rem; margin: 0 0 0.45rem; }
+  .role p { margin: 0; color: var(--muted); font-size: 0.97rem; }
+  .ch-cta { margin-top: 2.8rem; }
+  .ch-note { margin: 0.9rem 0 0; font-size: 0.88rem; color: var(--muted); }
+  @media (max-width: 900px) { .stages { grid-template-columns: repeat(2, 1fr); } .stage:last-child { grid-column: 1 / -1; } }
+  @media (max-width: 700px) { .roles { grid-template-columns: 1fr; gap: 1.6rem; } }
+  @media (max-width: 460px) { .stages { grid-template-columns: 1fr; } }
+
   /* ---------- contact & footer: dark bookend, matching the hero ---------- */
   .contact { background: var(--ink); color: var(--paper); }
   .contact .wrap { text-align: left; }
@@ -202,31 +246,36 @@
 
   footer { padding: 2.4rem 0; border-top: 1px solid #2B3550; background: var(--ink); padding-bottom: calc(2.4rem + env(safe-area-inset-bottom, 0px)); }
   footer .wrap { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.8rem; }
-  footer .fmark { font-family: var(--serif); color: var(--paper); font-size: 1.05rem; }
+  footer .fmark { display: inline-flex; align-items: center; gap: 0.55rem; font-family: 'Lora', var(--serif); font-weight: 700; color: var(--paper); font-size: 1.1rem; }
+  footer .logo-mark { height: 1.5rem; --logo-navy: #B5C8E6; }
   footer .ftag { color: #8F8A7C; font-size: 0.86rem; font-style: italic; }
   footer .fmeta { color: #6E6A5E; font-size: 0.8rem; }
 
   /* ---------- dark-mode tokens (viewer preference only; page still defaults light) ---------- */
   @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) { --paper: #12182A; --ink: #F1ECDF; --muted: #B7AF9C; --rule: #2C3550; }
+    :root:not([data-theme="light"]) { --paper: #12182A; --ink: #F1ECDF; --muted: #B7AF9C; --rule: #2C3550; --tint: #1A2138; --card: #1B2340; --logo-navy: #A9BFE3; }
     :root:not([data-theme="light"]) header { background: rgba(18, 24, 42, 0.92); }
     :root:not([data-theme="light"]) .tstep .dot { background: var(--paper); }
+    :root:not([data-theme="light"]) .lang button[aria-pressed="true"] { background: var(--science); }
   }
-  :root[data-theme="dark"] { --paper: #12182A; --ink: #F1ECDF; --muted: #B7AF9C; --rule: #2C3550; }
+  :root[data-theme="dark"] { --paper: #12182A; --ink: #F1ECDF; --muted: #B7AF9C; --rule: #2C3550; --tint: #1A2138; --card: #1B2340; --logo-navy: #A9BFE3; }
+  :root[data-theme="dark"] .lang button[aria-pressed="true"] { background: var(--science); }
 </style>
 </head>
 <body>
 
 <header>
   <div class="wrap nav">
-    <a class="wordmark" href="#top">TripleHelix</a>
-    <button class="navtoggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    <a class="wordmark" href="#top" aria-label="TripleHelix"><svg class="logo-mark" viewBox="7.13 5.50 85.75 76.00" aria-hidden="true" focusable="false"><line x1="50" y1="41" x2="50" y2="12" style="stroke:var(--logo-navy)" stroke-width="13" stroke-linecap="round"/><line x1="61.26" y1="60.5" x2="86.37" y2="75" stroke="#1481AA" stroke-width="13" stroke-linecap="round"/><line x1="38.74" y1="60.5" x2="13.63" y2="75" stroke="#D69E12" stroke-width="13" stroke-linecap="round"/></svg><span>TripleHelix</span></a>
+    <div class="lang" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="az" aria-pressed="false">AZ</button></div>
+    <button class="navtoggle" id="navToggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
     <ul class="navlinks" id="navLinks">
-      <li><a href="#why">Why We Exist</a></li>
-      <li><a href="#helix">The Idea</a></li>
-      <li><a href="#work">What We Do</a></li>
-      <li><a href="#process">How We Work</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#why" data-i18n="n1">Why We Exist</a></li>
+      <li><a href="#helix" data-i18n="n2">The Idea</a></li>
+      <li><a href="#work" data-i18n="n3">What We Do</a></li>
+      <li><a href="#challenges" data-i18n="n6">Challenges</a></li>
+      <li><a href="#process" data-i18n="n4">How We Work</a></li>
+      <li><a href="#contact" data-i18n="n5">Contact</a></li>
     </ul>
   </div>
 </header>
@@ -238,9 +287,9 @@
     <div class="wrap hero">
       <div class="strands vertical"><span></span><span></span><span></span></div>
       <div>
-        <h1>From Research to Reality.</h1>
-        <p class="lede">TripleHelix connects business and industry with education, science, and innovation across Azerbaijan — turning research and expertise into practical, commercial outcomes.</p>
-        <a class="cta" href="mailto:info@triplehelix.az">Start a conversation &nbsp;&rarr;</a>
+        <h1 data-i18n="h1">From Research to Reality.</h1>
+        <p class="lede" data-i18n="lede">TripleHelix connects business and industry with education, science, and innovation across Azerbaijan — turning research and expertise into practical, commercial outcomes.</p>
+        <a class="cta" href="mailto:info@triplehelix.az" data-i18n="cta1">Start a conversation &nbsp;&rarr;</a>
       </div>
     </div>
   </section>
@@ -250,20 +299,20 @@
   <!-- WHY WE EXIST -->
   <section id="why">
     <div class="wrap">
-      <h2>Three gaps, one missing bridge</h2>
-      <p class="intro">Azerbaijan's digital and innovation strategies set a clear national direction. What's missing is a consistent, structured mechanism connecting the institutions meant to deliver it.</p>
+      <h2 data-i18n="w_h">Three gaps, one missing bridge</h2>
+      <p class="intro" data-i18n="w_i">Azerbaijan's digital and innovation strategies set a clear national direction. What's missing is a consistent, structured mechanism connecting the institutions meant to deliver it.</p>
       <div class="gaps">
         <div class="gap-row">
-          <h3>Fragmented consulting</h3>
-          <p>Innovation and transformation advisory is largely unstructured today, delivered by individual consultants rather than an integrated practice.</p>
+          <h3 data-i18n="g1h">Fragmented consulting</h3>
+          <p data-i18n="g1p">Innovation and transformation advisory is largely unstructured today, delivered by individual consultants rather than an integrated practice.</p>
         </div>
         <div class="gap-row">
-          <h3>Weak systematic coordination</h3>
-          <p>No consistent mechanism connects business, science, government, and technology as a matter of course — each collaboration starts from zero.</p>
+          <h3 data-i18n="g2h">Weak systematic coordination</h3>
+          <p data-i18n="g2p">No consistent mechanism connects business, science, government, and technology as a matter of course — each collaboration starts from zero.</p>
         </div>
         <div class="gap-row">
-          <h3>Limited international integration</h3>
-          <p>B2B networking activity exists, but formats integrated with international standards and frameworks remain limited.</p>
+          <h3 data-i18n="g3h">Limited international integration</h3>
+          <p data-i18n="g3p">B2B networking activity exists, but formats integrated with international standards and frameworks remain limited.</p>
         </div>
       </div>
     </div>
@@ -275,12 +324,12 @@
   <section>
     <div class="wrap mv">
       <div class="mv-block">
-        <span class="tag">MISSION</span>
-        <blockquote>Give Azerbaijani institutions practical support in adopting global management, technology, and innovation practices — and connect them to the right partners, markets, and opportunities.</blockquote>
+        <span class="tag" data-i18n="mt">MISSION</span>
+        <blockquote data-i18n="mq">Give Azerbaijani institutions practical support in adopting global management, technology, and innovation practices — and connect them to the right partners, markets, and opportunities.</blockquote>
       </div>
       <div class="mv-block">
-        <span class="tag">VISION</span>
-        <blockquote>To become the trusted bridge between business, science, government, and technology in Azerbaijan — and a recognized innovation and partnership center across the region.</blockquote>
+        <span class="tag" data-i18n="vt">VISION</span>
+        <blockquote data-i18n="vq">To become the trusted bridge between business, science, government, and technology in Azerbaijan — and a recognized innovation and partnership center across the region.</blockquote>
       </div>
     </div>
   </section>
@@ -290,12 +339,12 @@
   <!-- THE TRIPLE HELIX CONCEPT -->
   <section id="helix">
     <div class="wrap">
-      <h2>Why we're called TripleHelix</h2>
-      <p class="intro">Developed by Henry Etzkowitz and Loet Leydesdorff, the Triple Helix model describes how innovation accelerates fastest not inside any single institution, but in the overlap between three strands. In our corridor, government's role runs specifically through education and science policy — so we name our three strands the way they actually meet in the room.</p>
+      <h2 data-i18n="t_h">Why we're called TripleHelix</h2>
+      <p class="intro" data-i18n="t_i">Developed by Henry Etzkowitz and Loet Leydesdorff, the Triple Helix model describes how innovation accelerates fastest not inside any single institution, but in the overlap between three strands. In our corridor, government's role runs specifically through education and science policy — so we name our three strands the way they actually meet in the room.</p>
       <div class="strand-cols">
-        <div class="strand-col"><h4>Business &amp; Industry</h4><p>The enterprises and sectors that turn capability into commercial outcomes.</p></div>
-        <div class="strand-col"><h4>Education &amp; Science</h4><p>The universities and research institutions where knowledge originates.</p></div>
-        <div class="strand-col"><h4>Innovation</h4><p>The capability their collaboration produces — not a fourth strand, but the result of the other two meeting.</p></div>
+        <div class="strand-col"><h4 data-i18n="s1h">Business &amp; Industry</h4><p data-i18n="s1p">The enterprises and sectors that turn capability into commercial outcomes.</p></div>
+        <div class="strand-col"><h4 data-i18n="s2h">Education &amp; Science</h4><p data-i18n="s2p">The universities and research institutions where knowledge originates.</p></div>
+        <div class="strand-col"><h4 data-i18n="s3h">Innovation</h4><p data-i18n="s3p">The capability their collaboration produces — not a fourth strand, but the result of the other two meeting.</p></div>
       </div>
     </div>
   </section>
@@ -305,12 +354,59 @@
   <!-- WHAT WE DO -->
   <section id="work">
     <div class="wrap">
-      <h2>What we do</h2>
-      <p class="intro">Three integrated pillars, delivered as one relationship rather than three separate vendors.</p>
+      <h2 data-i18n="d_h">What we do</h2>
+      <p class="intro" data-i18n="d_i">Three integrated pillars, delivered as one relationship rather than three separate vendors.</p>
       <div class="pillars">
-        <div class="pillar"><h3>Partner Development</h3><p>Business development strategy, innovation strategy, digital transformation, and organizational development — delivered as structured advisory, not ad hoc consulting.</p></div>
-        <div class="pillar"><h3>Strategic Partnerships</h3><p>Business&ndash;university and business&ndash;science collaboration, technology scouting and matching, consortium formation, and R&amp;D partnerships.</p></div>
-        <div class="pillar"><h3>Business Relations</h3><p>B2B matchmaking, business clubs and CEO networks, and international business missions — built on standards, not just introductions.</p></div>
+        <div class="pillar"><h3 data-i18n="p1h">Partner Development</h3><p data-i18n="p1p">Business development strategy, innovation strategy, digital transformation, and organizational development — delivered as structured advisory, not ad hoc consulting.</p></div>
+        <div class="pillar"><h3 data-i18n="p2h">Strategic Partnerships</h3><p data-i18n="p2p">Business&ndash;university and business&ndash;science collaboration, technology scouting and matching, consortium formation, and R&amp;D partnerships.</p></div>
+        <div class="pillar"><h3 data-i18n="p3h">Business Relations</h3><p data-i18n="p3p">B2B matchmaking, business clubs and CEO networks, and international business missions — built on standards, not just introductions.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-row"><div class="divider div-steps"><span></span><span></span><span></span></div></div>
+
+  <!-- HELIX CHALLENGES -->
+  <section class="challenges" id="challenges">
+    <div class="wrap">
+      <p class="eyebrow" data-i18n="ch_tag">Flagship programme &middot; First cycle planned November 2026 &ndash; April 2027</p>
+      <h2>Helix Challenges</h2>
+      <p class="ch-lead" data-i18n="ch_lead">A real problem goes in. A tested solution and a decision come out.</p>
+      <p class="intro" data-i18n="ch_i">A business states a real problem as an open call. Research groups, student teams and startups propose solutions, and TripleHelix runs the process through to a decision.</p>
+
+      <ol class="stages">
+        <li class="stage"><span class="num">1</span><h3 data-i18n="st1h">Brief</h3><p data-i18n="st1p">The owner names one problem, a decision date and a budget holder.</p></li>
+        <li class="stage"><span class="num">2</span><h3 data-i18n="st2h">Open call</h3><p data-i18n="st2p">Six weeks of applications from research groups, student teams and startups.</p></li>
+        <li class="stage"><span class="num">3</span><h3 data-i18n="st3h">Shortlist</h3><p data-i18n="st3p">Independent scoring. The owner confirms who proceeds.</p></li>
+        <li class="stage"><span class="num">4</span><h3 data-i18n="st4h">Pilot</h3><p data-i18n="st4p">Eight to ten weeks on a fixed scope.</p></li>
+        <li class="stage"><span class="num">5</span><h3 data-i18n="st5h">Decision</h3><p data-i18n="st5p">One of six outcomes, announced at GTW Baku.</p></li>
+      </ol>
+
+      <div class="outcomes">
+        <p class="label" data-i18n="ol">Six possible outcomes</p>
+        <p class="serve-band">
+          <span class="item" data-i18n="o1">Scale</span><span class="sep">&middot;</span><span class="item" data-i18n="o2">Partner</span><span class="sep">&middot;</span><span class="item" data-i18n="o3">License</span><span class="sep">&middot;</span><span class="item" data-i18n="o4">Spin out</span><span class="sep">&middot;</span><span class="item" data-i18n="o5">Invest</span><span class="sep">&middot;</span><span class="item" data-i18n="o6">Stop</span>
+        </p>
+      </div>
+
+      <h3 class="ch-sub" data-i18n="ch_who">Who takes part</h3>
+      <div class="roles">
+        <div class="role"><h4 data-i18n="r1h">Challenge owners</h4><p data-i18n="r1p">Bring one problem and one decision-maker. One department or one pilot idea is enough.</p></div>
+        <div class="role"><h4 data-i18n="r2h">Research partners</h4><p data-i18n="r2p">Tell us which groups, labs and student teams can answer industry problems.</p></div>
+        <div class="role"><h4 data-i18n="r3h">Funders</h4><p data-i18n="r3p">Co-finance a cycle and see measured results.</p></div>
+      </div>
+
+      <h3 class="ch-sub" data-i18n="sg_h">How both sides are protected</h3>
+      <div class="diff-grid">
+        <div class="diff-item"><h3 data-i18n="sg1h">The solver keeps its IP</h3><p data-i18n="sg1p">The owner gets an evaluation licence and an option to license. The university&rsquo;s transfer office signs.</p></div>
+        <div class="diff-item"><h3 data-i18n="sg2h">Two layers of confidentiality</h3><p data-i18n="sg2p">A public one-page summary of the problem. Full detail only after an NDA.</p></div>
+        <div class="diff-item"><h3 data-i18n="sg3h">Independent scoring</h3><p data-i18n="sg3p">The owner and an independent academic score the applications, not TripleHelix alone.</p></div>
+        <div class="diff-item"><h3 data-i18n="sg4h">Interests disclosed</h3><p data-i18n="sg4p">Farabi.vc considers a winner only after the decision is published, and the link is stated openly.</p></div>
+      </div>
+
+      <div class="ch-cta">
+        <a class="cta" href="mailto:info@triplehelix.az?subject=Helix%20Challenges" data-i18n="ch_cta">Propose a challenge &nbsp;&rarr;</a>
+        <p class="ch-note" data-i18n="ch_note">No commitment is needed for the first conversation. Dates are planned, not yet fixed.</p>
       </div>
     </div>
   </section>
@@ -320,9 +416,9 @@
   <!-- WHO WE SERVE -->
   <section>
     <div class="wrap">
-      <h2>Who we work with</h2>
+      <h2 data-i18n="k_h">Who we work with</h2>
       <p class="serve-band">
-        <span class="item">Universities &amp; research institutions</span><span class="sep">&middot;</span><span class="item">Government ministries &amp; agencies</span><span class="sep">&middot;</span><span class="item">Businesses &amp; industry leaders</span>
+        <span class="item" data-i18n="k1">Universities &amp; research institutions</span><span class="sep">&middot;</span><span class="item" data-i18n="k2">Government ministries &amp; agencies</span><span class="sep">&middot;</span><span class="item" data-i18n="k3">Businesses &amp; industry leaders</span>
       </p>
     </div>
   </section>
@@ -332,12 +428,12 @@
   <!-- DIFFERENTIATION -->
   <section>
     <div class="wrap">
-      <h2>What sets us apart</h2>
+      <h2 data-i18n="a_h">What sets us apart</h2>
       <div class="diff-grid">
-        <div class="diff-item"><h3>International standards, local fluency</h3><p>Practical experience applying ISO 56002, ISO 56005, and RTTP frameworks — rare expertise in this market, combined with deep understanding of local context.</p></div>
-        <div class="diff-item"><h3>One integrated relationship</h3><p>Advisory, partnership-building, and networking under one roof — a single point of contact rather than three separate vendors.</p></div>
-        <div class="diff-item"><h3>Aligned with state priorities</h3><p>A natural fit for institutional financing and partnership tied to national digital and innovation strategy.</p></div>
-        <div class="diff-item"><h3>Proven delivery experience</h3><p>An established track record delivering events and training programs — fast market entry, not a standing start.</p></div>
+        <div class="diff-item"><h3 data-i18n="a1h">International standards, local fluency</h3><p data-i18n="a1p">Practical experience applying ISO 56002, ISO 56005, and RTTP frameworks — rare expertise in this market, combined with deep understanding of local context.</p></div>
+        <div class="diff-item"><h3 data-i18n="a2h">One integrated relationship</h3><p data-i18n="a2p">Advisory, partnership-building, and networking under one roof — a single point of contact rather than three separate vendors.</p></div>
+        <div class="diff-item"><h3 data-i18n="a3h">Aligned with state priorities</h3><p data-i18n="a3p">A natural fit for institutional financing and partnership tied to national digital and innovation strategy.</p></div>
+        <div class="diff-item"><h3 data-i18n="a4h">Proven delivery experience</h3><p data-i18n="a4p">An established track record delivering events and training programs — fast market entry, not a standing start.</p></div>
       </div>
     </div>
   </section>
@@ -347,8 +443,8 @@
   <!-- GTW UMBRELLA -->
   <section class="gtw">
     <div class="wrap">
-      <h2>Operating under the GTW ecosystem</h2>
-      <p>TripleHelix is part of GTW — a movement that has spent years building trust and community across the Baku&ndash;Tbilisi&ndash;Tashkent corridor. This partnership does not begin from zero: it draws on an established network, earned credibility, and a wider innovation ecosystem already in motion.</p>
+      <h2 data-i18n="gh">Operating under the GTW ecosystem</h2>
+      <p data-i18n="gp">TripleHelix is part of GTW — a movement that has spent years building trust and community across the Baku&ndash;Tbilisi&ndash;Tashkent corridor. This partnership does not begin from zero: it draws on an established network, earned credibility, and a wider innovation ecosystem already in motion.</p>
     </div>
   </section>
 
@@ -357,28 +453,28 @@
   <!-- HOW WE WORK -->
   <section id="process">
     <div class="wrap">
-      <h2>How a partnership comes together</h2>
+      <h2 data-i18n="h_h">How a partnership comes together</h2>
       <div class="timeline">
-        <div class="tstep"><span class="dot"></span><h4>Partner</h4></div>
-        <div class="tstep"><span class="dot"></span><h4>Need identified</h4></div>
-        <div class="tstep"><span class="dot"></span><h4>Strategic collaboration formed</h4></div>
-        <div class="tstep"><span class="dot"></span><h4>Joint project</h4></div>
-        <div class="tstep"><span class="dot"></span><h4>Measurable outcome</h4></div>
+        <div class="tstep"><span class="dot"></span><h4 data-i18n="q1">Partner</h4></div>
+        <div class="tstep"><span class="dot"></span><h4 data-i18n="q2">Need identified</h4></div>
+        <div class="tstep"><span class="dot"></span><h4 data-i18n="q3">Strategic collaboration formed</h4></div>
+        <div class="tstep"><span class="dot"></span><h4 data-i18n="q4">Joint project</h4></div>
+        <div class="tstep"><span class="dot"></span><h4 data-i18n="q5">Measurable outcome</h4></div>
       </div>
-      <p class="process-note">This cycle creates synergy across all three pillars and compounds value back into the wider business and academic community with every partnership.</p>
+      <p class="process-note" data-i18n="qn">This cycle creates synergy across all three pillars and compounds value back into the wider business and academic community with every partnership.</p>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section class="contact" id="contact">
     <div class="wrap">
-      <h2>Let's build the bridge together.</h2>
-      <p class="lede2">No commitment is required for the first conversation — identify one department or one pilot idea, and start there.</p>
+      <h2 data-i18n="c_h">Let's build the bridge together.</h2>
+      <p class="lede2" data-i18n="c_p">No commitment is required for the first conversation — identify one department or one pilot idea, and start there.</p>
       <a class="cta" href="mailto:info@triplehelix.az">info@triplehelix.az &nbsp;&rarr;</a>
       <div class="meta">
-        <span>Baku, Azerbaijan</span>
+        <span data-i18n="m1">Baku, Azerbaijan</span>
         <span>triplehelix.az</span>
-        <span>Operating under the GTW Ecosystem</span>
+        <span data-i18n="m3">Operating under the GTW Ecosystem</span>
       </div>
     </div>
   </section>
@@ -387,7 +483,7 @@
 
 <footer>
   <div class="wrap">
-    <span class="fmark">TripleHelix</span>
+    <span class="fmark"><svg class="logo-mark" viewBox="7.13 5.50 85.75 76.00" aria-hidden="true" focusable="false"><line x1="50" y1="41" x2="50" y2="12" style="stroke:var(--logo-navy)" stroke-width="13" stroke-linecap="round"/><line x1="61.26" y1="60.5" x2="86.37" y2="75" stroke="#1481AA" stroke-width="13" stroke-linecap="round"/><line x1="38.74" y1="60.5" x2="13.63" y2="75" stroke="#D69E12" stroke-width="13" stroke-linecap="round"/></svg><span>TripleHelix</span></span>
     <span class="ftag">Tədqiqatdan Reallığa &nbsp;&middot;&nbsp; From Research to Reality</span>
     <span class="fmeta">&copy; 2026 TripleHelix</span>
   </div>
@@ -405,6 +501,130 @@
       document.getElementById('navToggle').setAttribute('aria-expanded', 'false');
     });
   });
+
+  var AZ = {
+ "n1": "Niyə varıq",
+ "n2": "İdeya",
+ "n3": "Nə edirik",
+ "n4": "Necə işləyirik",
+ "n5": "Əlaqə",
+ "n6": "Challenge-lər",
+ "ch_tag": "Əsas proqram &middot; Planlaşdırılan ilk dövr: noyabr 2026 &ndash; aprel 2027",
+ "ch_lead": "Real problem daxil olur. Sınaqdan keçmiş həll və qərar çıxır.",
+ "ch_i": "Biznes real problemi açıq çağırış kimi elan edir. Tədqiqat qrupları, tələbə komandaları və startaplar həll təklif edir, TripleHelix isə prosesi qərara qədər idarə edir.",
+ "st1h": "Brif",
+ "st1p": "Sahib bir problemi, qərar tarixini və büdcə məsul şəxsini müəyyən edir.",
+ "st2h": "Açıq çağırış",
+ "st2p": "Tədqiqat qruplarından, tələbə komandalarından və startaplardan altı həftə ərzində müraciətlər qəbul edilir.",
+ "st3h": "Qısa siyahı",
+ "st3p": "Müstəqil qiymətləndirmə aparılır. Sahib davam edənləri təsdiqləyir.",
+ "st4h": "Pilot",
+ "st4p": "Müəyyən edilmiş əhatə çərçivəsində səkkiz–on həftə.",
+ "st5h": "Qərar",
+ "st5p": "Altı nəticədən biri GTW Bakıda elan olunur.",
+ "ol": "Altı mümkün nəticə",
+ "o1": "Miqyaslaşdırma",
+ "o2": "Tərəfdaşlıq",
+ "o3": "Lisenziya",
+ "o4": "Spin-off",
+ "o5": "İnvestisiya",
+ "o6": "Dayandırma",
+ "ch_who": "Kimlər iştirak edir",
+ "r1h": "Challenge sahibləri",
+ "r1p": "Bir problem və bir qərarverici gətirin. Bir şöbə və ya bir pilot ideya kifayətdir.",
+ "r2h": "Tədqiqat tərəfdaşları",
+ "r2p": "Hansı qrupların, laboratoriyaların və tələbə komandalarının sənaye problemlərinə cavab verə biləcəyini bizə bildirin.",
+ "r3h": "Maliyyələşdiricilər",
+ "r3p": "Bir dövrü birgə maliyyələşdirin və ölçülə bilən nəticələri görün.",
+ "sg_h": "Hər iki tərəf necə qorunur",
+ "sg1h": "Həll müəllifi əqli mülkiyyətini saxlayır",
+ "sg1p": "Sahib qiymətləndirmə lisenziyası və lisenziya almaq opsiyası əldə edir. Müqaviləni universitetin transfer ofisi imzalayır.",
+ "sg2h": "İki səviyyəli məxfilik",
+ "sg2p": "Problemin açıq birsəhifəlik xülasəsi. Tam təfərrüat yalnız NDA-dan sonra təqdim olunur.",
+ "sg3h": "Müstəqil qiymətləndirmə",
+ "sg3p": "Müraciətləri təkcə TripleHelix deyil, sahib və müstəqil akademik qiymətləndirir.",
+ "sg4h": "Maraqlar açıqlanır",
+ "sg4p": "Farabi.vc qalibi yalnız qərar dərc olunandan sonra nəzərdən keçirir və bu əlaqə açıq bəyan edilir.",
+ "ch_cta": "Challenge təklif edin &nbsp;&rarr;",
+ "ch_note": "İlk söhbət üçün heç bir öhdəlik tələb olunmur. Tarixlər planlaşdırılıb, hələ yekun deyil.",
+ "h1": "Tədqiqatdan Reallığa.",
+ "lede": "TripleHelix Azərbaycanda biznes və sənayeni təhsil, elm və innovasiya ilə birləşdirir — tədqiqat və ekspertizanı praktiki, kommersiya nəticələrinə çevirir.",
+ "cta1": "Söhbətə başlayın &nbsp;&rarr;",
+ "w_h": "Üç boşluq, bir çatışmayan körpü",
+ "w_i": "Azərbaycanın rəqəmsal və innovasiya strategiyaları aydın milli istiqamət müəyyən edir. Çatışmayan isə onu icra etməli olan qurumları birləşdirən ardıcıl, strukturlaşdırılmış mexanizmdir.",
+ "g1h": "Parçalanmış konsaltinq",
+ "g1p": "İnnovasiya və transformasiya üzrə məsləhətçilik bu gün əsasən strukturlaşdırılmayıb və inteqrasiya olunmuş praktika əvəzinə ayrı-ayrı məsləhətçilər tərəfindən həyata keçirilir.",
+ "g2h": "Zəif sistemli koordinasiya",
+ "g2p": "Biznesi, elmi, dövləti və texnologiyanı təbii qaydada birləşdirən ardıcıl mexanizm yoxdur — hər əməkdaşlıq sıfırdan başlayır.",
+ "g3h": "Məhdud beynəlxalq inteqrasiya",
+ "g3p": "B2B şəbəkələşmə fəaliyyəti mövcuddur, lakin beynəlxalq standartlar və çərçivələrlə inteqrasiya olunmuş formatlar hələ də məhduddur.",
+ "mt": "MİSSİYA",
+ "mq": "Azərbaycan qurumlarına qlobal idarəetmə, texnologiya və innovasiya təcrübələrini mənimsəməkdə praktiki dəstək vermək və onları doğru tərəfdaşlar, bazarlar və imkanlarla əlaqələndirmək.",
+ "vt": "VİZYON",
+ "vq": "Azərbaycanda biznes, elm, dövlət və texnologiya arasında etibarlı körpü olmaq və region üzrə tanınmış innovasiya və tərəfdaşlıq mərkəzinə çevrilmək.",
+ "t_h": "Niyə TripleHelix adlanırıq",
+ "t_i": "Henry Etzkowitz və Loet Leydesdorff tərəfindən irəli sürülən Üçlü Spiral (Triple Helix) modeli göstərir ki, innovasiya ən sürətli şəkildə heç bir tək qurumun daxilində deyil, üç istiqamətin kəsişməsində inkişaf edir. Bizim məkanda dövlətin rolu məhz təhsil və elm siyasəti vasitəsilə həyata keçir — buna görə üç istiqamətimizi onların real həyatda görüşdüyü şəkildə adlandırırıq.",
+ "s1h": "Biznes və Sənaye",
+ "s1p": "İmkanları kommersiya nəticələrinə çevirən müəssisələr və sektorlar.",
+ "s2h": "Təhsil və Elm",
+ "s2p": "Biliyin yarandığı universitetlər və tədqiqat qurumları.",
+ "s3h": "İnnovasiya",
+ "s3p": "Onların əməkdaşlığının yaratdığı imkan — dördüncü istiqamət deyil, digər ikisinin görüşünün nəticəsidir.",
+ "d_h": "Nə edirik",
+ "d_i": "Üç inteqrasiya olunmuş istiqamət — üç ayrı podratçı kimi deyil, vahid münasibət kimi təqdim olunur.",
+ "p1h": "Partnyorların İnkişafı",
+ "p1p": "Biznesin inkişafı strategiyası, innovasiya strategiyası, rəqəmsal transformasiya və təşkilati inkişaf — təsadüfi konsaltinq kimi deyil, strukturlaşdırılmış məsləhətçilik kimi.",
+ "p2h": "Strateji Əməkdaşlıqlar",
+ "p2p": "Biznes–universitet və biznes–elm əməkdaşlığı, technology scouting və matching, konsorsium formalaşdırma və Ar-Ge tərəfdaşlıqları.",
+ "p3h": "Biznes Əlaqələrinin İnkişafı",
+ "p3p": "B2B matçmeykinq, biznes klubları və CEO şəbəkələri, beynəlxalq biznes missiyaları — sadəcə tanışlıqlara deyil, standartlara əsaslanır.",
+ "k_h": "Kimlərlə işləyirik",
+ "k1": "Universitetlər və tədqiqat qurumları",
+ "k2": "Dövlət nazirlikləri və qurumları",
+ "k3": "Biznes və sənaye liderləri",
+ "a_h": "Bizi fərqləndirən cəhətlər",
+ "a1h": "Beynəlxalq standartlar, yerli bələdlik",
+ "a1p": "ISO 56002, ISO 56005 və RTTP çərçivələrinin tətbiqi üzrə praktiki təcrübə — bu bazarda nadir ekspertiza, yerli kontekstin dərin anlayışı ilə birlikdə.",
+ "a2h": "Vahid inteqrasiya olunmuş münasibət",
+ "a2p": "Məsləhətçilik, tərəfdaşlıq qurulması və şəbəkələşmə vahid çətir altında — üç ayrı podratçı əvəzinə tək əlaqə nöqtəsi.",
+ "a3h": "Dövlət prioritetləri ilə uyğunluq",
+ "a3p": "Milli rəqəmsal və innovasiya strategiyası ilə bağlı institusional maliyyələşmə və tərəfdaşlıq üçün təbii uyğunluq.",
+ "a4h": "Sübut olunmuş icra təcrübəsi",
+ "a4p": "Tədbirlərin və təlim proqramlarının təşkilində formalaşmış təcrübə — bazara sürətli giriş, sıfırdan başlanğıc deyil.",
+ "gh": "GTW ekosistemi çərçivəsində fəaliyyət",
+ "gp": "TripleHelix GTW-nin bir hissəsidir — illər boyu Bakı–Tbilisi–Daşkənd dəhlizi boyunca etimad və icma quran hərəkat. Bu tərəfdaşlıq sıfırdan başlamır: mövcud şəbəkəyə, qazanılmış etibara və artıq hərəkətdə olan geniş innovasiya ekosisteminə əsaslanır.",
+ "h_h": "Tərəfdaşlıq necə formalaşır",
+ "q1": "Partnyor",
+ "q2": "Ehtiyacın müəyyən edilməsi",
+ "q3": "Strateji əməkdaşlığın formalaşması",
+ "q4": "Birgə layihə",
+ "q5": "Ölçülə bilən nəticə",
+ "qn": "Bu dövriyyə üç istiqamət üzrə sinergiya yaradır və hər tərəfdaşlıqla dəyəri daha geniş biznes və akademik icmaya qaytarır.",
+ "c_h": "Körpünü birlikdə quraq.",
+ "c_p": "İlk söhbət üçün heç bir öhdəlik tələb olunmur — bir şöbə və ya bir pilot ideya müəyyən edin və oradan başlayın.",
+ "m1": "Bakı, Azərbaycan",
+ "m3": "GTW Ekosistemi çərçivəsində fəaliyyət"
+};
+  var TITLE = { en: 'TripleHelix \u2014 From Research to Reality', az: 'TripleHelix \u2014 Tədqiqatdan Reallığa' };
+  var nodes = document.querySelectorAll('[data-i18n]');
+  nodes.forEach(function (n) { n.setAttribute('data-en', n.innerHTML); });
+  function setLang(l, save) {
+    nodes.forEach(function (n) {
+      n.innerHTML = (l === 'az') ? AZ[n.getAttribute('data-i18n')] : n.getAttribute('data-en');
+    });
+    document.documentElement.lang = l;
+    document.title = TITLE[l];
+    document.querySelectorAll('.lang button').forEach(function (b) {
+      b.setAttribute('aria-pressed', b.getAttribute('data-lang') === l ? 'true' : 'false');
+    });
+    if (save) { try { localStorage.setItem('th-lang', l); } catch (e) {} }
+  }
+  document.querySelectorAll('.lang button').forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang'), true); });
+  });
+  var start = 'en';
+  try { var s = localStorage.getItem('th-lang'); if (s === 'az' || s === 'en') start = s; else if ((navigator.language || '').toLowerCase().indexOf('az') === 0) start = 'az'; } catch (e) {}
+  if (start !== 'en') setLang(start, false);
 </script>
 
 </body>
