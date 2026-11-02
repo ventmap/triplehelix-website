@@ -70,6 +70,14 @@
     if (h && path.slice(-h.length) === h && h !== 'index') a.classList.add('active');
   });
 
+  // buttons that preselect a form role
+  doc.querySelectorAll('[data-role]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var sel = doc.querySelector('form[data-mailto] select[name="role"]');
+      if (sel) { sel.value = a.getAttribute('data-role'); }
+    });
+  });
+
   // forms -> mailto
   doc.querySelectorAll('form[data-mailto]').forEach(function (f) {
     var st = f.querySelector('.form-status');

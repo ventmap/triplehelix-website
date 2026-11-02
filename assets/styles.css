@@ -266,3 +266,23 @@ p { margin: 0; }
   .js .reveal { opacity: 1; transform: none; transition: none; }
   * { transition-duration: 0.01ms !important; animation: none !important; }
 }
+
+/* lists and card links */
+.bullets { list-style: none; margin: 0.25rem 0 0; padding: 0; display: grid; gap: 0.55rem; }
+.bullets li { position: relative; padding-left: 1.15rem; color: var(--body); line-height: 1.5; }
+.bullets li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 7px; height: 7px; border-radius: 50%; background: var(--accent, var(--navy)); }
+.card .more { margin-top: auto; padding-top: 0.5rem; font-weight: 600; font-size: 0.97rem; color: var(--blue-ink); text-decoration: none; }
+.card .more:hover { text-decoration: underline; }
+
+/* v3: shorter pages */
+.hero--short { padding-block: clamp(3.5rem, 7vw, 5.5rem) clamp(2rem, 4vw, 3rem); }
+.split { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; align-items: start; }
+.split-main { display: flex; flex-direction: column; gap: 1.1rem; }
+.split-main .eyebrow { margin: 0; }
+.facts { display: grid; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; overflow: hidden; }
+.facts > div { padding: 1.4rem 1.7rem; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 0.35rem; }
+.facts > div:first-child { border-top: 0; }
+.facts h3 { font-family: var(--sans); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-ink); }
+.partner { max-width: 54rem; margin: 0 auto; display: flex; align-items: center; gap: 1.75rem; flex-wrap: wrap; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 2rem 2.25rem; }
+.partner > div:last-child { flex: 1 1 18rem; display: flex; flex-direction: column; gap: 0.4rem; }
+.gtw-badge { flex: none; width: 92px; height: 92px; border-radius: 20px; background: var(--gold-soft); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-weight: 700; font-size: 1.75rem; color: var(--navy); }
